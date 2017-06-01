@@ -1,11 +1,13 @@
 <html>
     <title>UrlShortener</title>
-    <body>
-        <form role="form" action="" method="post">
-            {% csrf_token %}
-            {{ form.url }} {{ form.host }} 
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+     <body>
+         <form role="form" action="" method="post">
+             {% csrf_token %}
+             <p>{{ form.url }} {{ form.host }}  
             <button type="submit">Submit</button>
         </form>
-        {{ short_url }}
-    </body>    
-</html>        
+        <h3>{{ short_url }}</h3></p>    
+     </body>                
+</html> 
