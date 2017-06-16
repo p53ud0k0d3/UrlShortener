@@ -1,13 +1,39 @@
-<html>
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UrlShortener</title>
+    <!--Include Bootstrap CSS-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-     <body>
-         <form role="form" action="" method="post">
-             {% csrf_token %}
-             <p>{{ form.url }} {{ form.host }}  
-            <button type="submit">Submit</button>
-        </form>
-        <h3>{{ short_url }}</h3></p>    
-     </body>                
+    <!--Include Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+    	<h1 class="text-center">URL Shortner</h1>
+    	<div class="row">
+	        <form role="form" action="" method="post" class="col-md-8 col-md-offset-2">
+	        	{% csrf_token %}
+	        	<div class="form-group">
+	        		<label for="id_url">Long URL</label>
+	        		{{ form.url|attr:"class:form-control"|attr:"placeholder:Example: https://www.youtube.com/watch?v=Y2VF8tmLFHw" }}
+	        		<p class="help-block text-right">Enter the lengthy URL you want to shorten.</p>
+	        	</div>
+	        	<div class="form-group">
+	        		<label for="id_host">Choose the service you want to use.</label>
+	        		{{ form.host|attr:"class:form-control" }}
+	        	</div>
+	        	<div class="form-group text-center">
+	            	<button type="submit" class="btn btn-primary">Submit</button>
+	            </div>
+	        </form>
+        </div>
+    </div>
+	<h3>{{ short_url }}</h3></p>
+</body>    
+
 </html> 
