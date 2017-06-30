@@ -4,6 +4,7 @@ from django import forms
 HOSTS = (
         ('Tinyurl', 'Tinyurl'),
         ('Isgd', 'Is.gd'),
+		('Bitly', 'Bit.ly'),
         )
 
 class Urlform(forms.Form):
