@@ -7,10 +7,13 @@ from pyshorteners import Shortener
 from .forms import Urlform
 
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
+GOOGLE_TOKEN = "AIzaSyCyj45kuk95kopaSuJ4NvErGMyTVV9i3n4"
 
 def worker(url, host):
     if host == "Bitly":
         shortener = Shortener("Bitly", timeout=10, bitly_token=BITLY_TOKEN)
+    elif host == "Google":
+        shortener = Shortener("Google", timeout=10, api_key=GOOGLE_TOKEN)
     else:
         shortener = Shortener(host, timeout=10)
     short_url = shortener.short(url)
