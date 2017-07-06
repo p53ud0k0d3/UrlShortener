@@ -1,1 +1,18 @@
+# virtualenv stuff
+
 env/
+urlenv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# private_settings should hold all security sensitive items
+# SECRET_KEY, EMail passwords, API keys, etc.
+private_settings.py
+
+# it's bad practice to include the database in version control
+# it's better to write a script that will load the development
+# database with test values
+*.sqlite3
