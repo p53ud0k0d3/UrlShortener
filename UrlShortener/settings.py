@@ -19,7 +19,7 @@ try:
 except ImportError:
     from django.utils.crypto import get_random_string
     settings_dir = os.path.abspath(os.path.dirname(__file__))
-    private_key = get_random_string(50, string.ascii_letters + string.punctuation)
+    private_key = get_random_string(50, string.ascii_letters)
     with open('private_settings.py', 'w') as f:
         f.write("SECRET_KEY = '" + private_key + "'")
     from private_settings import SECRET_KEY
