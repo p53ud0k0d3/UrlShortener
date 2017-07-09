@@ -1,7 +1,10 @@
+-e .
 appdirs==1.4.3
 certifi==2017.4.17
 chardet==3.0.3
 Django==1.11.1
+pytest-django
+pytest-pythonpath
 django-widget-tweaks==1.4.1
 idna==2.5
 packaging==16.8
