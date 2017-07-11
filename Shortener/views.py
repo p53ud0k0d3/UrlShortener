@@ -8,8 +8,8 @@ from .forms import Urlform
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
-from serializers import UrlAPISerializer
-import forms
+from .serializers import UrlAPISerializer
+import Shortener.forms as forms
 from pyshorteners.exceptions import UnknownShortenerException
 
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
