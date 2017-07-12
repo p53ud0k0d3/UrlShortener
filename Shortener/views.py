@@ -4,13 +4,12 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 
 from pyshorteners import Shortener
-from .forms import Urlform
+from .forms import Urlform, HOSTS
 
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
-from serializers import UrlAPISerializer
-import forms
+from .serializers import UrlAPISerializer
 from pyshorteners.exceptions import UnknownShortenerException
 
 
@@ -58,7 +57,7 @@ class UrlShortenerAPIViewSet(viewsets.ViewSet):
     "short_url": "Shortened URL"
     """
     hostsString = ""
-    for host in forms.HOSTS: hostsString += host[0] + " "
+    for host in HOSTS: hostsString += host[0] + " "
     __doc__ = __doc__.replace("[hosts]", hostsString)
     
     def create(self, request, format=None):
