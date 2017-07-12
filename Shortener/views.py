@@ -70,5 +70,5 @@ class UrlShortenerAPIViewSet(viewsets.ViewSet):
                 return Response({'error': u'host must be one of: ' + self.hostsString}, status=status.HTTP_400_BAD_REQUEST)
             except ValueError:
                 return Response({'error': u'url invalid, please use a valid url'}, status=status.HTTP_400_BAD_REQUEST)
-            return Response({'short_url': unicode(ShortURL)}, status=status.HTTP_201_CREATED)
+            return Response({'short_url': str(ShortURL)}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
