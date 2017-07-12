@@ -6,6 +6,14 @@ from django.shortcuts import render
 from pyshorteners import Shortener
 from .forms import Urlform
 
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework import status
+from serializers import UrlAPISerializer
+import forms
+from pyshorteners.exceptions import UnknownShortenerException
+
+
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
 GOOGLE_TOKEN = "AIzaSyCyj45kuk95kopaSuJ4NvErGMyTVV9i3n4"
 
@@ -38,3 +46,30 @@ def home(request):
     return render(request, template, {'form': form_class,})
 
 
+class UrlShortenerAPIViewSet(viewsets.ViewSet):
+    """
+    Shortens URL via a POST method.
+    
+    Provide the following fields in your POST request:
+    "long_url": "URL to shorten, Example: https://www.youtube.com/watch?v=Y2VF8tmLFHw", 
+    "host": "Shortening service to use, must be one of: [hosts]"
+    
+    Returns:
+    "short_url": "Shortened URL"
+    """
+    hostsString = ""
+    for host in forms.HOSTS: hostsString += host[0] + " "
+    __doc__ = __doc__.replace("[hosts]", hostsString)
+    
+    def create(self, request, format=None):
+        serializer = UrlAPISerializer(data=request.data)
+        if serializer.is_valid():
+            UrlAPIObject = serializer.create(serializer.data)
+            try:
+                ShortURL = worker(UrlAPIObject.long_url, UrlAPIObject.host)
+            except (TypeError, UnknownShortenerException):
+                return Response({'error': u'host must be one of: ' + self.hostsString}, status=status.HTTP_400_BAD_REQUEST)
+            except ValueError:
+                return Response({'error': u'url invalid, please use a valid url'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'short_url': unicode(ShortURL)}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
