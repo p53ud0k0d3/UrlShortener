@@ -10,17 +10,21 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import UrlAPISerializer
+from .services.rebrandly import Rebrandly
 from pyshorteners.exceptions import UnknownShortenerException
 
 
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
 GOOGLE_TOKEN = "AIzaSyCyj45kuk95kopaSuJ4NvErGMyTVV9i3n4"
+REBRANDLY_TOKEN = "b71d7dcfd2f14f0ca4f533bbd6fd226a"
 
 def worker(url, host):
     if host == "Bitly":
         shortener = Shortener("Bitly", timeout=10, bitly_token=BITLY_TOKEN)
     elif host == "Google":
         shortener = Shortener("Google", timeout=10, api_key=GOOGLE_TOKEN)
+    elif host == "Rebrandly":
+        shortener = Shortener(engine=Rebrandly, timeout=10, api_key=REBRANDLY_TOKEN)
     else:
         shortener = Shortener(host, timeout=10)
     short_url = shortener.short(url)
