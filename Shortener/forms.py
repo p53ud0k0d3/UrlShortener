@@ -6,7 +6,8 @@ HOSTS = (
         ('Isgd', 'Is.gd'),
 		('Bitly', 'Bit.ly'),
         ('Google', 'Google URL Shortener'),
-        ('Rebrandly', 'Rebrand.ly',)
+        ('Rebrandly', 'Rebrand.ly',),
+        ('Osdb', 'Osdb.link	')
         )
 
 class Urlform(forms.Form):
