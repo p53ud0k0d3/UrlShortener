@@ -4,6 +4,7 @@ from django import forms
 HOSTS = (
         ('Tinyurl', 'Tinyurl'),
         ('Isgd', 'Is.gd'),
+		('Adfly', 'Adf.ly'),
 		('Bitly', 'Bit.ly'),
         ('Google', 'Google URL Shortener'),
         )

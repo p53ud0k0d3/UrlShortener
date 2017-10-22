@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from urllib.parse import urlparse
+from urlparse import urlparse
 
 from django.core.validators import URLValidator
 
@@ -23,6 +23,15 @@ def test_worker_shortens_url_with_google():
 def test_worker_shortens_url_with_bitly():
     url = "http://7bna.net/wallpapers/cat-pictures.html"
     host = "Bitly"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)
+
+def test_worker_shortens_url_with_adfly():
+    url = "http://7bna.net/wallpapers/cat-pictures.html"
+    host = "Adfly"
 
     shortened_url = worker(url, host)
 
