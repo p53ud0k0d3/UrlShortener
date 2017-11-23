@@ -12,11 +12,15 @@ from serializers import UrlAPISerializer
 import forms
 from pyshorteners.exceptions import UnknownShortenerException
 
+ADFLY_UID = "18186741"
+ADFLY_KEY = "569b1e40f77c58ee6c06bded3e476ab5"
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
 GOOGLE_TOKEN = "AIzaSyCyj45kuk95kopaSuJ4NvErGMyTVV9i3n4"
 
 def worker(url, host):
-    if host == "Bitly":
+    if host == "Adfly":
+        shortener = Shortener("Adfly", timeout=10, key=ADFLY_KEY, uid=ADFLY_UID)
+    elif host == "Bitly":
         shortener = Shortener("Bitly", timeout=10, bitly_token=BITLY_TOKEN)
     elif host == "Google":
         shortener = Shortener("Google", timeout=10, api_key=GOOGLE_TOKEN)
