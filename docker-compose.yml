@@ -1,0 +1,10 @@
+version: '3'
+services:
+  test:
+    build: .
+    entrypoint: "pytest"
+    
+  shortener:
+    build: .
+    ports:
+    - "5000:5000"

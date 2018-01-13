@@ -34,6 +34,29 @@ Tests are run using `pytest`
 
 For more information: [pytest](https://docs.pytest.org/en/latest/contents.html)
 
+## Docker
+
+Containerized version of the shoretener application for simplified build process
+This build is based on Docker python:3.6-alpine image and uses docker-compose to manage run commands. 
+
+
+
+For more information, visit: [docker-compose](https://docs.docker.com/compose/overview/)
+
+
+
+### Build
+1. Run `docker-compose build` in the project directory
+
+
+
+### Test
+1. Run `docker-compose up test` to run test
+
+### Run
+1. Run `docker-compose up shortener` to run the application
+2. Browse to `127.0.0.1:5000` to access the application
+
 
 ## Contributions
 ### Getting Started
