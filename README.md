@@ -39,7 +39,8 @@ For more information: [pytest](https://docs.pytest.org/en/latest/contents.html)
 Containerized version of the shoretener application for simplified build process
 This build is based on Docker python:3.6-alpine image and uses docker-compose to manage run commands. 
 
-
+Follow this link for docker installer [Docker](https://www.docker.com/community-edition#/download)
+Download and Install docker for your Operating system
 
 For more information, visit: [docker-compose](https://docs.docker.com/compose/overview/)
 
@@ -47,8 +48,6 @@ For more information, visit: [docker-compose](https://docs.docker.com/compose/ov
 
 ### Build
 1. Run `docker-compose build` in the project directory
-
-
 
 ### Test
 1. Run `docker-compose up test` to run test
