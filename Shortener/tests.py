@@ -29,6 +29,15 @@ def test_worker_shortens_url_with_bitly():
     assert url_validator(shortened_url)
     assert len(shortened_url) < len(url)
 
+def test_worker_shortens_url_with_madwire():
+    url = "http://7bna.net/wallpapers/cat-pictures.html"
+    host = "Madwire"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)
+
 
 def url_validator(url):
     try:
