@@ -20,6 +20,9 @@
 	        		{{ form.url|attr:"class:form-control input-lg"|attr:"placeholder:Example: https://www.youtube.com/watch?v=Y2VF8tmLFHw" }}
 	        		<p class="help-block text-right">Enter the lengthy URL you want to shorten.</p>
 	        	</div>
+	        	{% if error %}
+	        	<div class="text-center container">Enter the https:// or http:// in the starting of URL</div>
+	        	{% endif %}
 	        	<div class="form-group col-md-4 col-md-offset-4">
 	        		<label for="id_host">Service/Host:</label>
 	        		{{ form.host|attr:"class:form-control" }}
