@@ -1,17 +1,17 @@
 -e .
 appdirs==1.4.3
-certifi==2017.4.17
-chardet==3.0.3
-Django==1.11.1
+certifi==2018.1.18
+chardet==3.0.4
+Django==1.11.7
 pytest-django
 pytest-pythonpath
 django-widget-tweaks==1.4.1
-idna==2.5
+idna==2.6
 packaging==16.8
 pyparsing==2.2.0
-pyshorteners==0.6.0
-pytz==2017.2
-requests==2.17.3
+pyshorteners==0.6.1
+pytz==2017.3
+requests==2.18.4
 six==1.10.0
-urllib3==1.21.1
-djangorestframework==3.6.3
+urllib3==1.22
+djangorestframework==3.7.7

@@ -12,5 +12,5 @@ HOSTS = (
         )
 
 class Urlform(forms.Form):
-    url = forms.CharField(label="Url", max_length=200)
+    url = forms.CharField(initial='http://',required=True)
     host = forms.ChoiceField(choices=HOSTS)
