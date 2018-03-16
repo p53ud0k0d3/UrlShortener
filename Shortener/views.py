@@ -30,9 +30,13 @@ def worker(url, host):
         shortener = Shortener(engine=Madwire, timeout=10)
     else:
         shortener = Shortener(host, timeout=10)
-    short_url = shortener.short(url)
-    return short_url
 
+    try:
+        short_url = shortener.short(url)
+    except ValueError:
+        short_url = "Please enter a valid url"
+
+    return short_url
 
 def home(request):
     template = 'shortener/home.html'
