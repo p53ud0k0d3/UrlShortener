@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from urllib.parse import urlparse
+#from urllib.parse import urlparse
 
-from django.core.validators import URLValidator
+try:
+    from urllib.parse import urlparse
+except ImportError:
+     from urlparse import urlparse
+
+
 
 from Shortener.views import worker
 
