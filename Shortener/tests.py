@@ -39,6 +39,16 @@ def test_worker_shortens_url_with_madwire():
     assert len(shortened_url) < len(url)
 
 
+def test_worker_shortens_url_with_dagd():
+    url = "http://7bna.net/wallpapers/cat-pictures.html"
+    host = "Dagd"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)
+
+
 def url_validator(url):
     try:
         result = urlparse(url)
