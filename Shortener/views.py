@@ -28,6 +28,8 @@ def worker(url, host):
         shortener = Shortener(engine=Rebrandly, timeout=10, api_key=REBRANDLY_TOKEN)
     elif host == "Madwire":
         shortener = Shortener(engine=Madwire, timeout=10)
+    elif host == "Dagd":
+        shortener = Shortener("Dagd", timeout=10)
     else:
         shortener = Shortener(host, timeout=10)
     short_url = shortener.short(url)
