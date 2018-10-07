@@ -21,7 +21,7 @@ def test_worker_shortens_url_with_google():
     assert len(shortened_url) < len(url)
 
 def test_worker_shortens_url_with_bitly():
-    url = "http://7bna.net/wallpapers/cat-pictures.html"
+    url = "https://github.com/p53ud0k0d3/UrlShortener"
     host = "Bitly"
 
     shortened_url = worker(url, host)
@@ -30,7 +30,7 @@ def test_worker_shortens_url_with_bitly():
     assert len(shortened_url) < len(url)
 
 def test_worker_shortens_url_with_madwire():
-    url = "http://7bna.net/wallpapers/cat-pictures.html"
+    url = "https://github.com/p53ud0k0d3/UrlShortener"
     host = "Madwire"
 
     shortened_url = worker(url, host)
@@ -38,6 +38,41 @@ def test_worker_shortens_url_with_madwire():
     assert url_validator(shortened_url)
     assert len(shortened_url) < len(url)
 
+def test_worker_shortens_url_with_rebrandly():
+    url = "https://github.com/p53ud0k0d3/UrlShortener"
+    host = "Rebrandly"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)
+
+def test_worker_shortens_url_with_tinyurl():
+    url = "https://github.com/p53ud0k0d3/UrlShortener"
+    host = "Tinyurl"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)
+
+def test_worker_shortens_url_with_isgd():
+    url = "https://github.com/p53ud0k0d3/UrlShortener"
+    host = "Isgd"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)
+
+def test_worker_shortens_url_with_osdblink():
+    url = "https://github.com/p53ud0k0d3/UrlShortener"
+    host = "Osdb"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)
 
 def url_validator(url):
     try:
