@@ -9,7 +9,7 @@ django-widget-tweaks==1.4.1
 idna==2.6
 packaging==16.8
 pyparsing==2.2.0
-pyshorteners==0.6.1
+-e git://github.com/ellisonleao/pyshorteners.git#egg=pyshorteners
 pytz==2017.3
 requests==2.18.4
 six==1.10.0
