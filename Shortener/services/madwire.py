@@ -4,7 +4,7 @@ Madwire Shortener Implementation
 """
 import json
 
-from pyshorteners.shorteners.base import BaseShortener
+from pyshorteners.base import BaseShortener
 from pyshorteners.exceptions import ShorteningErrorException
 
 
