@@ -18,8 +18,9 @@ A Django web app that shortens long urls. User may select from a list of availab
 ## Installation
 
 1. `virtualenv YOURENVNAME` - Create new virtualenv for this project
-2. Navigate to directory containing 'requirements.txt'
-3. `pip install -r requirements.txt` - Install required packages
+2. `source YOURENVNAME/bin/activate` - Activate virtualenv
+3. Navigate to directory containing 'requirements.txt'
+4. `pip install -r requirements.txt` - Install required packages
 
 ## Usage
 
