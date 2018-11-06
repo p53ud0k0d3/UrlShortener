@@ -8,7 +8,6 @@ A Django web app that shortens long urls. User may select from a list of availab
 - Tinyurl
 - Is.gd
 - Bit.ly
-- Google URL Shortener
 - Rebrand.ly
 - m360.us
 - Osdb.link
