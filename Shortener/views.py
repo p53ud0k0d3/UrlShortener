@@ -32,6 +32,10 @@ def worker(url, host):
             return Shortener(timeout=10).isgd.short(url)
         elif host == "Osdb":
             return Shortener(timeout=10).osdb.short(url)
+        elif host == "Qpsru":
+            return Shortener(timeout=10).qpsru.short(url)
+
+
 
 #    return 
 

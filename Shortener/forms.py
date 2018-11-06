@@ -8,6 +8,7 @@ HOSTS = (
     ('Rebrandly', 'Rebrand.ly'),
     ('Madwire', 'm360.us'),
     ('Osdb', 'Osdb.link'),
+    ('Qpsru', 'Qps.ru'),
 #    ('Soogd', 'Soo.gd')    # not working in pyshorteners
 )
 
