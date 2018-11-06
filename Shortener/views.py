@@ -10,9 +10,8 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import UrlAPISerializer
-from .services.rebrandly import Rebrandly
-from .services.madwire import Madwire
-from pyshorteners.exceptions import UnknownShortenerException
+from .services import CustomShortener
+from pyshorteners.exceptions import BadURLException 
 
 
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
@@ -21,17 +20,21 @@ REBRANDLY_TOKEN = "b71d7dcfd2f14f0ca4f533bbd6fd226a"
 
 def worker(url, host):
     if host == "Bitly":
-        shortener = Shortener("Bitly", timeout=10, bitly_token=BITLY_TOKEN)
-    elif host == "Google":
-        shortener = Shortener("Google", timeout=10, api_key=GOOGLE_TOKEN)
+        return Shortener(timeout=10, api_key=BITLY_TOKEN).bitly.short(url)
     elif host == "Rebrandly":
-        shortener = Shortener(engine=Rebrandly, timeout=10, api_key=REBRANDLY_TOKEN)
+        return CustomShortener(timeout=10, api_key=REBRANDLY_TOKEN).rebrandly.short(url)
     elif host == "Madwire":
-        shortener = Shortener(engine=Madwire, timeout=10)
+        return CustomShortener(timeout=10).madwire.short(url)
     else:
-        shortener = Shortener(host, timeout=10)
-    short_url = shortener.short(url)
-    return short_url
+        if host == "Tinyurl":
+            return Shortener(timeout=10).tinyurl.short(url)
+        elif host == "Isgd":
+            return Shortener(timeout=10).isgd.short(url)
+        elif host == "Osdb":
+            return Shortener(timeout=10).osdb.short(url)
+
+#    return 
+
 
 
 def home(request):
@@ -73,7 +76,7 @@ class UrlShortenerAPIViewSet(viewsets.ViewSet):
             UrlAPIObject = serializer.create(serializer.data)
             try:
                 ShortURL = worker(UrlAPIObject.long_url, UrlAPIObject.host)
-            except (TypeError, UnknownShortenerException):
+            except (TypeError, BadURLException):
                 return Response({'error': u'host must be one of: ' + self.hostsString}, status=status.HTTP_400_BAD_REQUEST)
             except ValueError:
                 return Response({'error': u'url invalid, please use a valid url'}, status=status.HTTP_400_BAD_REQUEST)

@@ -8,11 +8,11 @@ from pyshorteners.base import BaseShortener
 from pyshorteners.exceptions import ShorteningErrorException
 
 
-class Madwire(BaseShortener):
+class CustomShortener(BaseShortener):
     api_url = "https://m360.us/add"
 
     def __init__(self, **kwargs):
-        super(Madwire, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def short(self, url):
         params = {

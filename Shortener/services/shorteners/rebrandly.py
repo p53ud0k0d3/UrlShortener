@@ -9,14 +9,9 @@ from pyshorteners.base import BaseShortener
 from pyshorteners.exceptions import ShorteningErrorException
 
 
-class Rebrandly(BaseShortener):
+class CustomShortener(BaseShortener):
     api_url = "https://api.rebrandly.com/v1/links"
 
-    def __init__(self, **kwargs):
-        if not kwargs.get('api_key', False):
-            raise TypeError('api_key missing from kwargs')
-        self.api_key = kwargs.get('api_key')
-        super(Rebrandly, self).__init__(**kwargs)
 
     def short(self, url):
         params = json.dumps({
