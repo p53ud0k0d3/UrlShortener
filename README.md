@@ -14,7 +14,7 @@ A Django web app that shortens long urls. User may select from a list of availab
 - Qps.ru 
 - Da.gd
 - Clck.ru
-- Clip.it
+- Chilp.it
 
 ## Pre-reqs
 
