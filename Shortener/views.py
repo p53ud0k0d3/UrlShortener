@@ -18,6 +18,9 @@ BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
 GOOGLE_TOKEN = "AIzaSyCyj45kuk95kopaSuJ4NvErGMyTVV9i3n4"
 REBRANDLY_TOKEN = "b71d7dcfd2f14f0ca4f533bbd6fd226a"
 
+class HostError(Exception):
+    pass
+
 def worker(url, host):
     if host == "Bitly":
         return Shortener(timeout=10, api_key=BITLY_TOKEN).bitly.short(url)
@@ -40,14 +43,8 @@ def worker(url, host):
             return Shortener(timeout=10).clckru.short(url)
         elif host == "Chilpit":
             return Shortener(timeout=10).chilpit.short(url)
-
-
-
-
-
-
-#    return 
-
+    
+    raise HostError("Expected a valid host.")
 
 
 def home(request):
