@@ -12,6 +12,9 @@ A Django web app that shortens long urls. User may select from a list of availab
 - m360.us
 - Osdb.link
 - Qps.ru 
+- Da.gd
+- Clck.ru
+- Clip.it
 
 ## Pre-reqs
 

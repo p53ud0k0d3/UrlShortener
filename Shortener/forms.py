@@ -9,7 +9,9 @@ HOSTS = (
     ('Madwire', 'm360.us'),
     ('Osdb', 'Osdb.link'),
     ('Qpsru', 'Qps.ru'),
-#    ('Soogd', 'Soo.gd')    # not working in pyshorteners
+    ('Dagd', 'Da.gd'),
+    ('Clckru', 'Clck.ru'),
+    ('Chilpit', 'Chilp.it'),
 )
 
 class Urlform(forms.Form):

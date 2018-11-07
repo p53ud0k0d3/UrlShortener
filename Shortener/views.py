@@ -34,6 +34,15 @@ def worker(url, host):
             return Shortener(timeout=10).osdb.short(url)
         elif host == "Qpsru":
             return Shortener(timeout=10).qpsru.short(url)
+        elif host == "Dagd":
+            return Shortener(timeout=10).dagd.short(url)
+        elif host == "Clckru":
+            return Shortener(timeout=10).clckru.short(url)
+        elif host == "Chilpit":
+            return Shortener(timeout=10).chilpit.short(url)
+
+
+
 
 
 
