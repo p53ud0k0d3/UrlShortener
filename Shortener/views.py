@@ -12,7 +12,6 @@ from rest_framework import status
 from .serializers import UrlAPISerializer
 from .services.rebrandly import Rebrandly
 from .services.madwire import Madwire
-from pyshorteners.exceptions import UnknownShortenerException
 
 
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
@@ -55,25 +54,25 @@ def home(request):
 class UrlShortenerAPIViewSet(viewsets.ViewSet):
     """
     Shortens URL via a POST method.
-    
+
     Provide the following fields in your POST request:
-    "long_url": "URL to shorten, Example: https://www.youtube.com/watch?v=Y2VF8tmLFHw", 
+    "long_url": "URL to shorten, Example: https://www.youtube.com/watch?v=Y2VF8tmLFHw",
     "host": "Shortening service to use, must be one of: [hosts]"
-    
+
     Returns:
     "short_url": "Shortened URL"
     """
     hostsString = ""
     for host in HOSTS: hostsString += host[0] + " "
     __doc__ = __doc__.replace("[hosts]", hostsString)
-    
+
     def create(self, request, format=None):
         serializer = UrlAPISerializer(data=request.data)
         if serializer.is_valid():
             UrlAPIObject = serializer.create(serializer.data)
             try:
                 ShortURL = worker(UrlAPIObject.long_url, UrlAPIObject.host)
-            except (TypeError, UnknownShortenerException):
+            except (TypeError, AtrributeError):
                 return Response({'error': u'host must be one of: ' + self.hostsString}, status=status.HTTP_400_BAD_REQUEST)
             except ValueError:
                 return Response({'error': u'url invalid, please use a valid url'}, status=status.HTTP_400_BAD_REQUEST)
