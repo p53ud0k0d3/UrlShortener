@@ -12,6 +12,7 @@ from rest_framework import status
 from .serializers import UrlAPISerializer
 from .services.rebrandly import Rebrandly
 from .services.madwire import Madwire
+from .services.google import Google
 
 
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
@@ -20,15 +21,15 @@ REBRANDLY_TOKEN = "b71d7dcfd2f14f0ca4f533bbd6fd226a"
 
 def worker(url, host):
     if host == "Bitly":
-        shortener = Shortener("Bitly", timeout=10, bitly_token=BITLY_TOKEN)
+        shortener = Shortener(timeout=10, api_key=BITLY_TOKEN).bitly
     elif host == "Google":
-        shortener = Shortener("Google", timeout=10, api_key=GOOGLE_TOKEN)
+        shortener = Google(timeout=10, api_key=GOOGLE_TOKEN)
     elif host == "Rebrandly":
-        shortener = Shortener(engine=Rebrandly, timeout=10, api_key=REBRANDLY_TOKEN)
+        shortener = Rebrandly(timeout=10, api_key=REBRANDLY_TOKEN)
     elif host == "Madwire":
-        shortener = Shortener(engine=Madwire, timeout=10)
+        shortener = Madwire(timeout=10)
     else:
-        shortener = Shortener(host, timeout=10)
+        shortener = getattrib(Shortener(host, timeout=10), host)
     short_url = shortener.short(url)
     return short_url
 
