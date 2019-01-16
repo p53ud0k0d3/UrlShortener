@@ -19,7 +19,7 @@ class Google(BaseShortener):
         super(Google, self).__init__(**kwargs)
 
     def short(self, url):
-        params = '{}={}'.format('key', self.api_key) # to not encode
+        params = '{}={}'.format('key', self.api_key)  # to not encode
         data = json.dumps({'longUrl': url})
         headers = {'content-type': 'application/json'}
         try:
@@ -30,7 +30,7 @@ class Google(BaseShortener):
                 headers=headers
             )
             response.raise_for_status()
-        except (ValueError,KeyError,RequestException) as e:
+        except (ValueError, KeyError, RequestException) as e:
             raise ShorteningErrorException('There was an error shortening'
                                            ' this url - {0}'.format(e))
         else:
