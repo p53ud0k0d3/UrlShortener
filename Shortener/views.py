@@ -48,9 +48,9 @@ def home(request):
             host = form_class.cleaned_data['host']
             short_url = worker(url, host)
             form_class = Urlform()
-            return render(request, template, {'form': form_class, 'short_url': short_url,})
+            return render(request, template, {'form': form_class, 'short_url': short_url, })
 
-    return render(request, template, {'form': form_class,})
+    return render(request, template, {'form': form_class, })
 
 
 class UrlShortenerAPIViewSet(viewsets.ViewSet):
@@ -64,8 +64,7 @@ class UrlShortenerAPIViewSet(viewsets.ViewSet):
     Returns:
     "short_url": "Shortened URL"
     """
-    hostsString = ""
-    for host in HOSTS: hostsString += host[0] + " "
+    hostsString = ' '.join([host[0] for host in HOSTS])
     __doc__ = __doc__.replace("[hosts]", hostsString)
 
     def create(self, request, format=None):
@@ -74,9 +73,12 @@ class UrlShortenerAPIViewSet(viewsets.ViewSet):
             UrlAPIObject = serializer.create(serializer.data)
             try:
                 ShortURL = worker(UrlAPIObject.long_url, UrlAPIObject.host)
-            except (TypeError, AtrributeError):
-                return Response({'error': u'host must be one of: ' + self.hostsString}, status=status.HTTP_400_BAD_REQUEST)
+            except (TypeError, AttributeError):
+                return Response({'error': u'host must be one of: ' + self.hostsString},
+                                status=status.HTTP_400_BAD_REQUEST)
             except ValueError:
-                return Response({'error': u'url invalid, please use a valid url'}, status=status.HTTP_400_BAD_REQUEST)
-            return Response({'short_url': str(ShortURL)}, status=status.HTTP_201_CREATED)
+                return Response({'error': u'url invalid, please use a valid url'},
+                                status=status.HTTP_400_BAD_REQUEST)
+            return Response({'short_url': str(ShortURL)},
+                            status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
