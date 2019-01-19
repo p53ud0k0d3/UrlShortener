@@ -10,6 +10,12 @@ A Django web app that shortens long urls. User may select from a list of availab
 - Bit.ly
 - Google URL Shortener
 - Rebrand.ly
+- Madwire
+- Osdb
+- Chilpit
+- clckru
+- Dagd
+- qpsru
 
 ## Pre-reqs
 
