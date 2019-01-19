@@ -2,13 +2,17 @@ from django import forms
 
 
 HOSTS = (
-        ('Tinyurl', 'Tinyurl'),
-        ('Isgd', 'Is.gd'),
+        ('tinyurl', 'Tinyurl'),
+        ('isgd', 'Is.gd'),
         ('Bitly', 'Bit.ly'),
         ('Google', 'Google URL Shortener'),
         ('Rebrandly', 'Rebrand.ly'),
         ('Madwire', 'm360.us'),
-        ('Osdb', 'Osdb.link	')
+        ('osdb', 'Osdb.link	'),
+        ('chilpit', 'chilp.it'),
+        ('clckru', 'clck.ru'),
+        ('dagd', 'da.gd'),
+        ('qpsru', 'qps.ru'),
         )
 
 class Urlform(forms.Form):
