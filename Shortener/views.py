@@ -10,6 +10,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import UrlAPISerializer
+from .serializers import Url_adjuster
 from .services.rebrandly import Rebrandly
 from .services.madwire import Madwire
 from pyshorteners.exceptions import UnknownShortenerException
@@ -30,7 +31,8 @@ def worker(url, host):
         shortener = Shortener(engine=Madwire, timeout=10)
     else:
         shortener = Shortener(host, timeout=10)
-    short_url = shortener.short(url)
+    adjusted_url = Url_adjuster.adjust(Url_adjuster(), url)
+    short_url = shortener.short(adjusted_url)
     return short_url
 
 
