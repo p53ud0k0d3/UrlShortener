@@ -13,3 +13,11 @@ class UrlAPISerializer(serializers.Serializer):
     
     def create(self, validated_data):
         return UrlAPI(id=None, **validated_data)
+
+
+class Url_adjuster():
+
+    def adjust(self, url):
+        if str(url[7:]).startswith('http'):
+            url = url[7:]
+        return url
