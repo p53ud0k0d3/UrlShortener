@@ -1,0 +1,3 @@
+[submodule "Dockerized_UrlShortener/UrlShortener"]
+	path = Dockerized_UrlShortener/UrlShortener
+	url = git@github.com:bjornwelboren/UrlShortener.git
