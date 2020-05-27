@@ -12,7 +12,7 @@ from rest_framework import status
 from .serializers import UrlAPISerializer
 from .services.rebrandly import Rebrandly
 from .services.madwire import Madwire
-from pyshorteners.exceptions import UnknownShortenerException
+# from pyshorteners.exceptions import UnknownShortenerException
 
 
 BITLY_TOKEN = "19c73c3f96d4b2a64d0337ef7380cf0de313e8f7"
@@ -73,7 +73,7 @@ class UrlShortenerAPIViewSet(viewsets.ViewSet):
             UrlAPIObject = serializer.create(serializer.data)
             try:
                 ShortURL = worker(UrlAPIObject.long_url, UrlAPIObject.host)
-            except (TypeError, UnknownShortenerException):
+            except (TypeError):
                 return Response({'error': u'host must be one of: ' + self.hostsString}, status=status.HTTP_400_BAD_REQUEST)
             except ValueError:
                 return Response({'error': u'url invalid, please use a valid url'}, status=status.HTTP_400_BAD_REQUEST)

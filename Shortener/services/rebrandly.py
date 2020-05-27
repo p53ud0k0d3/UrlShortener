@@ -1,11 +1,11 @@
 # encoding: utf-8
 """
 Rebrandly Shortener Implementation
-Needs a API_KEY
+Needs an API_KEY
 """
 import json
 
-from pyshorteners.shorteners.base import BaseShortener
+from pyshorteners.base import BaseShortener                     
 from pyshorteners.exceptions import ShorteningErrorException
 
 
