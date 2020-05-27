@@ -46,4 +46,4 @@ For more information: [pytest](https://docs.pytest.org/en/latest/contents.html)
 
 
 ### Adding a new host
-This project uses the pyshorteners library for url shortening, read their documentation for more information on implementing a new host: [pyshorteners](http://www.ellison.rocks/pyshorteners/)
+This project uses the pyshorteners library for url shortening, read their documentation for more information on implementing a new host: [pyshorteners](https://pyshorteners.readthedocs.io/en/latest/index.html)
