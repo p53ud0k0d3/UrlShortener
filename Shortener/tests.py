@@ -45,3 +45,12 @@ def url_validator(url):
         return True if [result.scheme, result.netloc, result.path] else False
     except:
         return False
+
+def test_worker_shortens_url_with_nullpointer():
+    url = "http://7bna.net/wallpapers/cat-pictures.html"
+    host = "NullPointer"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)

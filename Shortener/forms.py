@@ -8,7 +8,8 @@ HOSTS = (
         ('Google', 'Google URL Shortener'),
         ('Rebrandly', 'Rebrand.ly'),
         ('Madwire', 'm360.us'),
-        ('Osdb', 'Osdb.link	')
+        ('Osdb', 'Osdb.link	'),
+        ('NullPointer', '0x0.st')
         )
 
 class Urlform(forms.Form):

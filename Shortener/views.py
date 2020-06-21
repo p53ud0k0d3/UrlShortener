@@ -32,6 +32,8 @@ def worker(url, host):          # Madwire, Google, and Rebrandly no longer suppo
     #     shortener = Shortener(engine=Rebrandly, timeout=10, api_key=REBRANDLY_TOKEN)
     elif host == "Tinyurl":
         short_url = shortener.tinyurl.short(url)
+    elif host == "NullPointer":
+        short_url = shortener.nullpointer.short(url)
     else:
         short_url = "That service is no longer available via pyshortener"
     return short_url
