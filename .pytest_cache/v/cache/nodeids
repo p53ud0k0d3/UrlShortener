@@ -1,0 +1,5 @@
+[
+  "Shortener/tests.py::test_worker_shortens_url_with_google", 
+  "Shortener/tests.py::test_worker_shortens_url_with_bitly", 
+  "Shortener/tests.py::test_worker_shortens_url_with_madwire"
+]
