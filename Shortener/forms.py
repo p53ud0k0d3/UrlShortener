@@ -1,14 +1,15 @@
 from django import forms
 
-
+# formated in alphabetical order
 HOSTS = (
-        ('Tinyurl', 'Tinyurl'),
-        ('Isgd', 'Is.gd'),
-		    ('Bitly', 'Bit.ly'),
+        ('Bitly', 'Bit.ly'),
+        ('Bitdo, Bit.do'),
         ('Google', 'Google URL Shortener'),
-        ('Rebrandly', 'Rebrand.ly'),
+        ('Isgd', 'Is.gd'),
         ('Madwire', 'm360.us'),
-        ('Osdb', 'Osdb.link	')
+        ('Osdb', 'Osdb.link ')
+        ('Rebrandly', 'Rebrand.ly'),
+        ('Tinyurl', 'Tinyurl'),
         )
 
 class Urlform(forms.Form):
