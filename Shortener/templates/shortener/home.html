@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UrlShortener</title>
-    <!--Include Bootstrap CSS-->
+	<!--Include Bootstrap CSS-->
+	<link
+	href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet"
+  />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 
@@ -34,14 +38,41 @@
 	        </form>
         </div>
         <div class="row">
-        	<div class="text-center col-md-6 col-md-offset-3">
-				<h2>{{ short_url }}</h2>
-				{% if short_url %}
+        	<div class="text-center col-md-6 col-md-offset-3">			
+			
+				  <div style="display:flex; justify-content:center; align-items:center">
+				  {% if short_url %}
+					<h2 id="url">{{ short_url }}</h2> 
+					<span id="copy-icon"  style="cursor:pointer; margin-left:2rem;" title="Copy URL">
+						<i class="material-icons">content_copy</i>
+					</span>
+				  </div>
+
 					<img src="http://chart.apis.google.com/chart?cht=qr&chl={{ short_url }}&chs=180x180" />
+				{%else%}
+				</div>
 				{% endif %}
 			</div>
         </div>
     </div>
-</body>    
+</body>   
+
+
+
+{% comment %} Copy url to clipboard {% endcomment %}
+<script>
+	try{
+		text = document.getElementById("url").innerText;
+		document.getElementById("copy-icon").onclick = ()=>{
+			elem = document.createElement("textarea");
+			document.body.appendChild(elem);
+			elem.value = text;
+			elem.select();
+			document.execCommand("copy");
+			document.body.removeChild(elem);
+		}
+	}
+	catch(err){}
+</script>
 
 </html> 

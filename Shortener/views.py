@@ -12,6 +12,9 @@ from rest_framework import status
 from .serializers import UrlAPISerializer
 from .services.rebrandly import Rebrandly
 from .services.madwire import Madwire
+from django.core.validators import URLValidator
+
+validate = URLValidator()
 # from pyshorteners.exceptions import UnknownShortenerException
 
 
@@ -20,6 +23,11 @@ GOOGLE_TOKEN = "AIzaSyCyj45kuk95kopaSuJ4NvErGMyTVV9i3n4"
 REBRANDLY_TOKEN = "b71d7dcfd2f14f0ca4f533bbd6fd226a"
 
 def worker(url, host):          # Madwire, Google, and Rebrandly no longer supported by pyshortener
+    try:                     #Check if the url is valid or not
+        validate(url)
+    except:
+        return "Invalid URL"
+
     shortener = Shortener()
     if host == "Bitly":
         shortener = Shortener(api_key=BITLY_TOKEN)
