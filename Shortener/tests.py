@@ -11,6 +11,16 @@ from Shortener.views import worker
 # Form tests
 # View tests
 
+def test_worker_shortens_url_with_tinyurl():
+    url = "http://7bna.net/wallpapers/cat-pictures.html"
+    host = "Tinyurl"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+    assert len(shortened_url) < len(url)
+
+
 def test_worker_shortens_url_with_google():
     url = "http://7bna.net/wallpapers/cat-pictures.html"
     host = "Google"
@@ -29,7 +39,8 @@ def test_worker_shortens_url_with_bitly():
     assert url_validator(shortened_url)
     assert len(shortened_url) < len(url)
 
-def test_worker_shortens_url_with_madwire():
+
+'''def test_worker_shortens_url_with_madwire():
     url = "http://7bna.net/wallpapers/cat-pictures.html"
     host = "Madwire"
 
@@ -37,7 +48,7 @@ def test_worker_shortens_url_with_madwire():
 
     assert url_validator(shortened_url)
     assert len(shortened_url) < len(url)
-
+'''
 
 def url_validator(url):
     try:
