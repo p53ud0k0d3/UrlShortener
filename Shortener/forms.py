@@ -1,6 +1,5 @@
 from django import forms
 
-# Arranged Alphabetically
 HOSTS = (
     ('Bitly', 'Bit.ly'),
     ('Cuttly', 'cutt.ly'),
