@@ -46,4 +46,10 @@ For more information: [pytest](https://docs.pytest.org/en/latest/contents.html)
 
 
 ### Adding a new host
-This project uses the pyshorteners library for url shortening, read their documentation for more information on implementing a new host: [pyshorteners](https://pyshorteners.readthedocs.io/en/latest/index.html)
+This project uses the pyshorteners library for url shortening, read their documentation for more information on implementing a new host: [pyshorteners](http://www.ellison.rocks/pyshorteners/)
+
+### Docker
+1. Clone repository
+2. Make sure you have execute permission on run.sh and Docker is installed (Linux, 'chmod +x run.sh' in the repo)
+3. Run run.sh like ' ./run.sh ' 
+4. Visit localhost:8000 and watch it run
