@@ -1,5 +1,5 @@
 # UrlShortener 
-[![forthebadge](http://forthebadge.com/badges/built-with-swag.svg)](http://forthebadge.com)     
+[![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com)     
 [![Build Status](https://travis-ci.org/p53ud0k0d3/UrlShortener.svg?branch=master)](https://travis-ci.org/p53ud0k0d3/UrlShortener)     [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 A Django web app that shortens long urls. User may select from a list of available hosts. 
