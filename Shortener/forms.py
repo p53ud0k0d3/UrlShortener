@@ -1,20 +1,19 @@
 from django import forms
 
-
 HOSTS = (
-        ('Tinyurl', 'Tinyurl'),
-        ('Isgd', 'Is.gd'),
-	('Bitly', 'Bit.ly'),
-        ('Google', 'Google URL Shortener'),
-        ('Rebrandly', 'Rebrand.ly'),
-        ('Madwire', 'm360.us'),
-        ('Osdb', 'Os.db'),
-        ('Chilpit', 'Chilp.it'),
-        ('Clckru', 'Clck.ru'),
-        ('Dagd', 'Da.gd'),
-        ('Qpsru', 'Qps.ru')
-        )
+    ('Bitly', 'Bit.ly'),
+    ('Cuttly', 'cutt.ly'),
+    ('Clckru', 'clck.ru'),
+    ('Chilpit', 'chilp.it'),
+    ('Dagd', 'da.gd'),
+    ('Isgd', 'Is.gd'),
+    ('NullPointer', '0x0.st'),
+    ('Osdb', 'Osdb.link	'),
+    ('Qpsru', 'Qps.ru	'),
+    ('Tinyurl', 'Tinyurl')
+)
+
 
 class Urlform(forms.Form):
-    url = forms.CharField(initial='http://',required=True)
+    url = forms.CharField(initial='http://', required=True)
     host = forms.ChoiceField(choices=HOSTS)
