@@ -13,7 +13,7 @@ A Django web app that shortens long urls. User may select from a list of availab
 
 ## Pre-reqs
 
-[Virtualenv](https://virtualenv.pypa.io/en/stable/) - Install required packages in a virtual enviroment. Not necessary, but recommended. 
+[Virtualenv](https://virtualenv.pypa.io/en/stable/) - Install required packages in a virtual environment. Not necessary, but recommended. 
 
 ## Installation
 
