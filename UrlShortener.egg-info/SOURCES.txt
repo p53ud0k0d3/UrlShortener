@@ -1,0 +1,6 @@
+README.md
+setup.py
+UrlShortener.egg-info/PKG-INFO
+UrlShortener.egg-info/SOURCES.txt
+UrlShortener.egg-info/dependency_links.txt
+UrlShortener.egg-info/top_level.txt

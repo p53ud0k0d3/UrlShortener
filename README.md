@@ -1,5 +1,5 @@
 # UrlShortener 
-[![forthebadge](http://forthebadge.com/badges/built-with-swag.svg)](http://forthebadge.com)     
+[![forthebadge](https://forthebadge.com/images/badges/built-with-swag.svg)](https://forthebadge.com)     
 [![Build Status](https://travis-ci.org/p53ud0k0d3/UrlShortener.svg?branch=master)](https://travis-ci.org/p53ud0k0d3/UrlShortener)     [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 A Django web app that shortens long urls. User may select from a list of available hosts. 
@@ -13,7 +13,7 @@ A Django web app that shortens long urls. User may select from a list of availab
 
 ## Pre-reqs
 
-[Virtualenv](https://virtualenv.pypa.io/en/stable/) - Install required packages in a virtual enviroment. Not necessary, but recommended. 
+[Virtualenv](https://virtualenv.pypa.io/en/stable/) - Install required packages in a virtual environment. Not necessary, but recommended. 
 
 ## Installation
 
@@ -53,4 +53,3 @@ This project uses the pyshorteners library for url shortening, read their docume
 2. Make sure you have execute permission on run.sh and Docker is installed (Linux, 'chmod +x run.sh' in the repo)
 3. Run run.sh like ' ./run.sh ' 
 4. Visit localhost:8000 and watch it run
-
