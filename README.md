@@ -11,7 +11,7 @@ A Django web app that shortens long urls. User may select from a list of availab
 - Google URL Shortener
 - Rebrand.ly
 
-## Pre-reqs
+## Pre-Requirements
 
 [Virtualenv](https://virtualenv.pypa.io/en/stable/) - Install required packages in a virtual enviroment. Not necessary, but recommended. 
 
