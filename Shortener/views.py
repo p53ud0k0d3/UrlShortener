@@ -12,6 +12,7 @@ from rest_framework import status
 from .serializers import UrlAPISerializer
 from .services.rebrandly import Rebrandly
 from .services.madwire import Madwire
+from .services.chogoon import Chogoon
 
 # from pyshorteners.exceptions import UnknownShortenerException
 
@@ -51,6 +52,9 @@ def worker(url, host):
         short_url = shortener.dagd.short(url)
     elif host == "Qpsru":
         short_url = shortener.qpsru.short(url)
+    elif host == "Chogoon":
+        shortener = Chogoon()
+        short_url = shortener.short(url)
     else:
         short_url = "That service is no longer available via pyshortener"
     return short_url
