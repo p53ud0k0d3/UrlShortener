@@ -10,7 +10,8 @@ HOSTS = (
     ('NullPointer', '0x0.st'),
     ('Osdb', 'Osdb.link	'),
     ('Qpsru', 'Qps.ru	'),
-    ('Tinyurl', 'Tinyurl')
+    ('Tinyurl', 'Tinyurl'),
+    ('Chogoon', 'Chogoon')
 )
 
 
