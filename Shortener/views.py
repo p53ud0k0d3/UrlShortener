@@ -14,6 +14,7 @@ from .services.rebrandly import Rebrandly
 from .services.madwire import Madwire
 from .services.chogoon import Chogoon
 from .services.goolnk import GooLNK
+from .services.hideuri import HideURI
 
 # from pyshorteners.exceptions import UnknownShortenerException
 
@@ -58,6 +59,9 @@ def worker(url, host):
         short_url = shortener.short(url)
     elif host == "GooLNK":
         shortener = GooLNK()
+        short_url = shortener.short(url)
+    elif host == "HideURI":
+        shortener = HideURI()
         short_url = shortener.short(url)
     else:
         short_url = "That service is no longer available via pyshortener"

@@ -12,7 +12,8 @@ HOSTS = (
     ('Qpsru', 'Qps.ru	'),
     ('Tinyurl', 'Tinyurl'),
     ('Chogoon', 'Chogoon'),
-	('GooLNK', 'GooLNK')
+	('GooLNK', 'GooLNK'),
+	('HideURI','HideURI')
 )
 
 
