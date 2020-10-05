@@ -48,7 +48,8 @@ def test_worker_shortens_url_with_goolnk():
     shortened_url = worker(url, host)
 
     assert url_validator(shortened_url)
-	assert len(shortened_url) < len(url)
+    assert len(shortened_url) < len(url)
+
 
 def url_validator(url):
     try:
