@@ -11,7 +11,8 @@ HOSTS = (
     ('Osdb', 'Osdb.link	'),
     ('Qpsru', 'Qps.ru	'),
     ('Tinyurl', 'Tinyurl'),
-    ('Chogoon', 'Chogoon')
+    ('Chogoon', 'Chogoon'),
+	('GooLNK', 'GooLNK')
 )
 
 

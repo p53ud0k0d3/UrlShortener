@@ -41,6 +41,15 @@ def test_worker_shortens_url_with_chogoon():
     assert len(shortened_url) < len(url)
 
 
+def test_worker_shortens_url_with_goolnk():
+    url = "http://7bna.net/wallpapers/cat-pictures.html"
+    host = "GooLNK"
+
+    shortened_url = worker(url, host)
+
+    assert url_validator(shortened_url)
+	assert len(shortened_url) < len(url)
+
 def url_validator(url):
     try:
         result = urlparse(url)

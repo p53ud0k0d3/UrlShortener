@@ -13,6 +13,7 @@ from .serializers import UrlAPISerializer
 from .services.rebrandly import Rebrandly
 from .services.madwire import Madwire
 from .services.chogoon import Chogoon
+from .services.goolnk import GooLNK
 
 # from pyshorteners.exceptions import UnknownShortenerException
 
@@ -54,6 +55,9 @@ def worker(url, host):
         short_url = shortener.qpsru.short(url)
     elif host == "Chogoon":
         shortener = Chogoon()
+        short_url = shortener.short(url)
+    elif host == "GooLNK":
+        shortener = GooLNK()
         short_url = shortener.short(url)
     else:
         short_url = "That service is no longer available via pyshortener"
